@@ -85,14 +85,14 @@ dse_api/
 ## Features
 
 - Express server with basic routing
-- ✅ MySQL database connection pool
-- ✅ JWT authentication support (dependencies installed)
-- ✅ Password hashing with bcrypt
-- ✅ CORS enabled
-- ✅ Environment variable configuration
-- 🚀 Authentication routes (ready for implementation)
-- 🚀 Items routes (ready for implementation)
-- 🚀 Items controller (ready for implementation)
+- MySQL database connection pool
+- JWT authentication support (dependencies installed)
+- Password hashing with bcrypt
+- CORS enabled
+- Environment variable configuration
+- Authentication routes (ready for implementation)
+- Items routes (ready for implementation)
+- Items controller (ready for implementation)
 
 ## Database Connection
 
