@@ -2,10 +2,19 @@
 const express= require('express');
 const dotenv = require('dotenv');
 const {db} = require('./config/db.js');
+
+const authRoutes = require('./routes/authRoutes.js');
+
 const app = express();
 //evn file config
 
 dotenv.config();
+
+// middleware
+
+app.use(cors());
+app.use(express.json());
+
 //Test db conncetion
 db.getConnection((err) => {
     if(err){
@@ -20,7 +29,13 @@ db.getConnection((err) => {
 app.get('/',(req,res) => {
     res.send("Welcome to DSE Backend API developed by DSE Team");
 })
+
+// auth routes
+
+app.use('/api/auth',authRoutes);
+
 //app listening port
+
 const PORT = process.env.PORT || 3000; 
 app.listen(PORT,() => {
     console.log(`Server is running on port ${PORT}`);
