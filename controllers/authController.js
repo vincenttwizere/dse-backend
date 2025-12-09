@@ -31,7 +31,7 @@ export const register = (req, res) => {
 
 // login
 
-export const login = (req, res) =>{
+export const login = (req, res) => {
     const { email, password } = req.body;
 
     //  check if the user exist in database

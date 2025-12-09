@@ -36,10 +36,12 @@ app.get('/',(req,res) => {
 // auth routes
 
 app.use('/api/auth',authRoutes);
+app.use('/api/get',itemRoutes);
 
 //item routes
 
 app.use('/api/additem', itemRoutes);
+app.use('/api/updateItem', itemRoutes);
 
 //app listening port
 
