@@ -2,6 +2,7 @@
   "name": "dse-project-api",
   "version": "1.0.0",
   "description": "This is the api for dse",
+  "type": "module",
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",

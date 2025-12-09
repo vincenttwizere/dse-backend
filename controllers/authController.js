@@ -1,4 +1,4 @@
-import {db} from '../db.js';
+import {db} from '../config/db.js';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
@@ -41,13 +41,13 @@ export const login = (req, res) =>{
     if (err) return res.json({ err:  `Error occur ${err}` });
 
     if(results.length === 0) return res.json({ message: "User not found" });
-  });
+ 
 
 //   compare  entered password  and the one in the database
 
 bcrypt.compare(password, results[0].password, (err, isMatch) => {
 
-    if (err) return res.json({ message: "Error comparing password" });
+    if (err) return res.json({ message: `Error comparing password : ${err}` });
     if (!isMatch) return res.json({ message: "Incorrect password" });
 
     // create JWT token
@@ -56,12 +56,11 @@ bcrypt.compare(password, results[0].password, (err, isMatch) => {
         "your_jwt_secret_key",
         { expiresIn: "1h" }
     );
-
     return res.json({
         message: "Login successful",
         token
+        });
+
     });
-
-});
-
+ });
 }

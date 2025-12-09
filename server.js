@@ -1,9 +1,11 @@
 //creating express server
-const express= require('express');
-const dotenv = require('dotenv');
-const {db} = require('./config/db.js');
+import express from 'express';
+import dotenv from 'dotenv';
+import {db} from './config/db.js';
+import  cors from 'cors';
 
-const authRoutes = require('./routes/authRoutes.js');
+import authRoutes from './routes/authRoutes.js';
+import itemRoutes from './routes/itemRoutes.js'
 
 const app = express();
 //evn file config
@@ -27,12 +29,17 @@ db.getConnection((err) => {
 
 //routes and endpoints
 app.get('/',(req,res) => {
+    
     res.send("Welcome to DSE Backend API developed by DSE Team");
 })
 
 // auth routes
 
 app.use('/api/auth',authRoutes);
+
+//item routes
+
+app.use('/api/additem', itemRoutes);
 
 //app listening port
 
